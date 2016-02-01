@@ -199,7 +199,7 @@
         <div class="row row-content">
            <div class="col-xs-12">
                 <div id="mycarousel" class="carousel slide" data-ride="carousel">
-                        <!-- Indicators -->
+                    <!-- Indicators -->
                     <ol class="carousel-indicators">
                         <li data-target="#mycarousel" data-slide-to="0" class="active"></li>
                         <li data-target="#mycarousel" data-slide-to="1"></li>
@@ -238,7 +238,7 @@
                             </div>
                         </div>
                     </div>
-                        <!-- Controls -->
+                    <!-- PREV/NEXT Slide Controls -->
                     <a class="left carousel-control" href="#mycarousel" role="button" data-slide="prev">
                         <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
                         <span class="sr-only">Previous</span>
@@ -247,6 +247,15 @@
                         <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
                         <span class="sr-only">Next</span>
                     </a>
+                    <!--PAUSE/PLAY buttons-->
+                    <div class="btn-group" id="carouselButtons">
+                        <button class="btn btn-danger btn-xs" id="carousel-pause">
+                            <span class="glyphicon glyphicon-pause" aria-hidden="true"></span>
+                        </button>
+                        <button class="btn btn-danger btn-xs" id="carousel-play">
+                            <span class="glyphicon glyphicon-play" aria-hidden="true"></span>
+                        </button>
+                    </div>
                 </div>
             </div>
         </div>
@@ -380,11 +389,17 @@
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="js/bootstrap.min.js"></script>
 
-    <!--The tooltip needs to be activated by adding a small Javascript code to the bottom of the page as follows:-->
+    <!--FUNÇÕES EXECUTADAS SOBRE O CAROUSEL -->
     <script>
         $(document).ready(function(){
-        $('[data-toggle="tooltip"]').tooltip();
-         });
+            $("#mycarousel").carousel( { interval: 2000 } );
+            $("#carousel-pause").click(function(){
+                $("#mycarousel").carousel('pause');
+            });
+            $("#carousel-play").click(function(){
+                $("#mycarousel").carousel('cycle');
+            });
+        });
     </script>
 </body>
 
